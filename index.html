@@ -116,11 +116,25 @@
       non.style.height = r.height + 'px';
       non.classList.add('fuit');
     }
-    const marge = 20;
+ const marge = 20;
     const maxX = window.innerWidth  - non.offsetWidth  - marge;
     const maxY = window.innerHeight - non.offsetHeight - marge;
-    const x = Math.max(marge, Math.random()*maxX);
-    const y = Math.max(marge, Math.random()*maxY);
+
+    // zone occupée par le bouton OUI, qu'on veut éviter
+    const o = oui.getBoundingClientRect();
+    const espace = 24; // marge de sécurité autour du Oui
+
+    let x, y, essais = 0;
+    do {
+      x = Math.max(marge, Math.random() * maxX);
+      y = Math.max(marge, Math.random() * maxY);
+      essais++;
+    } while (
+      essais < 100 &&
+      x < o.right + espace && x + non.offsetWidth  > o.left - espace &&
+      y < o.bottom + espace && y + non.offsetHeight > o.top  - espace
+    );
+
     non.style.left = x + 'px';
     non.style.top  = y + 'px';
 
