@@ -82,11 +82,11 @@
 <body>
   <div class="scene">
     <!-- ====== CHANGE LE TEXTE ICI ====== -->
-    <p class="question" id="question">Tu veux sortir avec moi ? 🥺</p>
+    <p class="question" id="question">Would you still hangout with me tonight and maybe more ? </p>
     <p class="sous-titre" id="sous-titre">(réfléchis bien…)</p>
 
     <div class="boutons" id="boutons">
-      <button class="oui" id="oui">Oui 💖</button>
+      <button class="oui" id="oui">Oui </button>
       <button class="non" id="non">Non</button>
     </div>
   </div>
@@ -103,8 +103,8 @@
   let tailleOui = 1;            // grossit à chaque esquive
   let tailleNon = 1;            // rétrécit à chaque esquive
   const phrases = [             // petits messages qui changent
-    "Non", "Sûr ?", "Vraiment ?", "Réfléchis…",
-    "Allez quoi", "S'te plaît 🥺", "Dernière chance", "T'es méchant·e", "Bon ok non non"
+    "Non", "Sûr ?","Meme pas un peu ?" ,  "Vraiment ?", "Réfléchis…",
+    "Allez quoi", "Dernière chance", , "Bon ok non non"
   ];
   let i = 0;
 
@@ -125,7 +125,7 @@
     non.style.top  = y + 'px';
 
     // le oui grossit, le non rétrécit
-    tailleOui = Math.min(tailleOui + 0.18, 3);
+    tailleOui = Math.min(tailleOui + 0.18, 100);
     tailleNon = Math.max(tailleNon - 0.08, 0.5);
     oui.style.transform = 'scale(' + tailleOui + ')';
     non.style.transform = 'scale(' + tailleNon + ')';
@@ -142,8 +142,8 @@
 
   // clic sur OUI = victoire
   oui.addEventListener('click', function(){
-    question.textContent = "Youpiii ! 🎉💕";
-    sousTitre.textContent = "Je le savais.";
+    question.textContent = "Nice, let's have some fuuunnnnnn";
+    sousTitre.textContent = "Jamais douté de toi";
     non.style.display = 'none';
     oui.textContent = "❤️";
     pluieDeCoeurs();
